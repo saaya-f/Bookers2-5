@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   root :to => "homes#top"
   get "home/about" => "homes#about"
   devise_for :users
@@ -17,5 +18,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     # id受け渡し必要なし
   end
+  get 'user/:id/search' => 'users#search'
+  get 'books/:id/search' => 'books#search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
